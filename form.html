@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Price Predictor - Input Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>House Price Predictor</h1>
+    <form action="/predict" method="post">
+      <label for="bedrooms">Number of Bedrooms:</label>
+      <select id="bedrooms" name="bedrooms" required>
+        <option value="">Select number of bedrooms</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5+</option>
+      </select>
+
+      <label for="bathrooms">Number of Bathrooms:</label>
+      <select id="bathrooms" name="bathrooms" required>
+        <option value="">Select number of bathrooms</option>
+        <option value="1">1</option>
+        <option value="1.5">1.5</option>
+        <option value="2">2</option>
+        <option value="2.5">2.5</option>
+        <option value="3">3+</option>
+      </select>
+
+      <label for="living_area">Living Area (sq ft):</label>
+      <select id="living_area" name="living_area" required>
+        <option value="">Select living area range</option>
+        <option value="500-1000">500 - 1000 sq ft</option>
+        <option value="1001-1500">1001 - 1500 sq ft</option>
+        <option value="1501-2000">1501 - 2000 sq ft</option>
+        <option value="2001-2500">2001 - 2500 sq ft</option>
+        <option value="2501-3000">2501 - 3000 sq ft</option>
+        <option value="3001-10000">3001+ sq ft</option>
+      </select>
+
+      <label for="price_range">Price Range:</label>
+      <select id="price_range" name="price_range" required>
+        <option value="">Select a range</option>
+        <option value="0-200000">$0 - $200,000</option>
+        <option value="200001-400000">$200,001 - $400,000</option>
+        <option value="400001-600000">$400,001 - $600,000</option>
+        <option value="600001-800000">$600,001 - $800,000</option>
+        <option value="800001-1000000">$800,001 - $1,000,000</option>
+        <option value="1000001-10000000">$1,000,001+</option>
+      </select>
+
+      <input type="submit" value="Find Houses" />
+    </form>
+  </body>
+</html>

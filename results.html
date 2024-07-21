@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Houses</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #333;
+      }
+      .house {
+        background-color: #f4f4f4;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+      }
+      .house-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .house-detail {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Available Houses</h1>
+    {% if houses %} {% for house in houses %}
+    <div class="house">
+      <h2>House #{{ loop.index }}</h2>
+      <div class="house-grid">
+        <div class="house-detail"><strong>ID:</strong> {{ house.id }}</div>
+        <div class="house-detail"><strong>Date:</strong> {{ house.Date }}</div>
+        <div class="house-detail">
+          <strong>Bedrooms:</strong> {{ house['number of bedrooms'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Bathrooms:</strong> {{ house['number of bathrooms'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Living Area:</strong> {{ house['living area'] }} sq ft
+        </div>
+        <div class="house-detail">
+          <strong>Lot Area:</strong> {{ house['lot area'] }} sq ft
+        </div>
+        <div class="house-detail">
+          <strong>Floors:</strong> {{ house['number of floors'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Waterfront:</strong> {{ 'Yes' if house['waterfront present']
+          else 'No' }}
+        </div>
+        <div class="house-detail">
+          <strong>Views:</strong> {{ house['number of views'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Condition:</strong> {{ house['condition of the house'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Built Year:</strong> {{ house['Built Year'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Renovation Year:</strong> {{ house['Renovation Year'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Postal Code:</strong> {{ house['Postal Code'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Latitude:</strong> {{ house['Lattitude'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Longitude:</strong> {{ house['Longitude'] }}
+        </div>
+        <div class="house-detail">
+          <strong>Living Area (Renov):</strong> {{ house['living_area_renov'] }}
+          sq ft
+        </div>
+        <div class="house-detail">
+          <strong>Lot Area (Renov):</strong> {{ house['lot_area_renov'] }} sq ft
+        </div>
+        <div class="house-detail">
+          <strong>Schools Nearby:</strong> {{ house['Number of schools nearby']
+          }}
+        </div>
+        <div class="house-detail">
+          <strong>Airport Distance:</strong> {{ house['Distance from the
+          airport'] }} miles
+        </div>
+        <div class="house-detail">
+          <strong>Price:</strong> ${{ '{:,}'.format(house['Price']) }}
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>No houses found matching your criteria.</p>
+    {% endif %}
+    <a href="/form">Back to Search</a>
+  </body>
+</html>
